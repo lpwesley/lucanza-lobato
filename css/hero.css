@@ -1,0 +1,134 @@
+/* hero.css — composição editorial em duas colunas */
+
+.hero {
+  position: relative;
+  padding-top: var(--space-5);
+  background:
+    radial-gradient(60rem 40rem at 90% 10%, rgba(121, 100, 168, 0.14), transparent 60%),
+    linear-gradient(180deg, var(--color-background), var(--color-sand));
+}
+
+.hero__interno {
+  display: grid;
+  gap: var(--space-5);
+  align-items: center;
+}
+
+.hero__descricao {
+  max-width: 34rem;
+  margin-top: var(--space-3);
+  font-size: var(--fs-lead);
+  color: var(--color-text-soft);
+}
+
+.hero__acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+
+.hero__acoes .botao {
+  flex: 1 1 14rem;
+}
+
+.hero__destaques {
+  display: grid;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+  padding-top: var(--space-3);
+  border-top: 1px solid rgba(53, 37, 77, 0.15);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+}
+
+.hero__destaques li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.hero__destaques .icone {
+  color: var(--color-primary);
+}
+
+/* Foto principal em formato de arco, com moldura dourada deslocada */
+.hero__figura {
+  position: relative;
+  margin: 0;
+  width: min(100%, 30rem);
+  margin-inline: auto;
+}
+
+.hero__figura::before {
+  content: "";
+  position: absolute;
+  inset: 1.25rem -1rem -1rem 1.25rem;
+  border: 2px solid var(--color-accent);
+  border-radius: var(--radius-arco);
+  z-index: 0;
+}
+
+.hero__foto {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  aspect-ratio: 5 / 6;
+  object-fit: cover;
+  border-radius: var(--radius-arco);
+  box-shadow: var(--shadow-card);
+}
+
+.hero__legenda {
+  position: absolute;
+  z-index: 2;
+  left: -0.25rem;
+  bottom: 2rem;
+  display: grid;
+  padding: 0.9rem 1.25rem;
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  line-height: 1.3;
+}
+
+.hero__legenda strong {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: var(--color-primary-dark);
+}
+
+.hero__legenda span {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent-dark);
+}
+
+@media (min-width: 600px) {
+  .hero__destaques {
+    grid-template-columns: repeat(3, auto);
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 900px) {
+  .hero {
+    padding-top: var(--space-6);
+  }
+
+  .hero__interno {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: var(--space-6);
+  }
+
+  .hero__acoes .botao {
+    flex: 0 0 auto;
+  }
+
+  .hero__legenda {
+    left: -2rem;
+  }
+}

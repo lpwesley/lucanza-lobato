@@ -1,0 +1,93 @@
+/* services.css — cards de atendimento com foto */
+
+.servicos__cabecalho {
+  max-width: 40rem;
+  margin-bottom: var(--space-5);
+}
+
+.servicos__lista {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.servico {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.servico__foto {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.servico__corpo {
+  position: relative;
+  padding: var(--space-4) var(--space-3) var(--space-3);
+}
+
+/* Selo com ícone sobreposto à foto */
+.servico__icone {
+  position: absolute;
+  top: -1.6rem;
+  left: var(--space-3);
+  display: grid;
+  place-items: center;
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+  background: var(--color-primary-dark);
+  color: var(--color-accent);
+  box-shadow: 0 6px 16px rgba(53, 37, 77, 0.25);
+}
+
+.servico__corpo p {
+  color: var(--color-text-soft);
+}
+
+.servico__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+}
+
+.servico__link .icone {
+  transition: transform 0.25s;
+}
+
+/* Todo o card vira área clicável, sem duplicar links */
+.servico__link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+@media (hover: hover) {
+  .servico:hover {
+    box-shadow: var(--shadow-card);
+  }
+
+  .servico:hover .servico__link .icone {
+    transform: translateX(4px);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .servico:hover {
+    transform: translateY(-4px);
+  }
+}
+
+@media (min-width: 900px) {
+  .servicos__lista {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

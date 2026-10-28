@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# CONFIRMAR: ativar quando o domínio definitivo estiver no ar
+# Sitemap: https://SEU-DOMINIO.com.br/sitemap.xml

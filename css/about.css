@@ -1,0 +1,86 @@
+/* about.css — Sobre: apresentação pessoal editorial */
+
+.sobre {
+  background: var(--color-surface);
+}
+
+.sobre__interno {
+  display: grid;
+  gap: var(--space-5);
+  align-items: center;
+}
+
+.sobre__figura {
+  position: relative;
+  margin: 0;
+  width: min(100%, 26rem);
+  margin-inline: auto;
+}
+
+/* Bloco dourado atrás da foto */
+.sobre__figura::before {
+  content: "";
+  position: absolute;
+  inset: -1rem 1.25rem 1.25rem -1rem;
+  background: var(--color-sand);
+  border-radius: var(--radius-lg);
+}
+
+.sobre__figura img {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.sobre__destaque {
+  font-family: var(--font-heading);
+  font-size: clamp(1.25rem, 1.05rem + 0.9vw, 1.65rem);
+  line-height: 1.35;
+  color: var(--color-primary-dark);
+}
+
+.sobre__dados {
+  display: grid;
+  gap: 0;
+  margin: var(--space-4) 0 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.sobre__dados > div {
+  display: grid;
+  gap: 0.15rem;
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.sobre__dados dt {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent-dark);
+}
+
+.sobre__dados dd {
+  margin: 0;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+}
+
+@media (min-width: 600px) {
+  .sobre__dados > div {
+    grid-template-columns: 9rem 1fr;
+    align-items: baseline;
+    gap: var(--space-2);
+  }
+}
+
+@media (min-width: 900px) {
+  .sobre__interno {
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: var(--space-6);
+  }
+}

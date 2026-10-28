@@ -1,0 +1,83 @@
+/* steps.css — linha do tempo (vertical no celular, horizontal no desktop) */
+
+.passos {
+  background: var(--color-background);
+}
+
+.passos__cabecalho {
+  max-width: 40rem;
+  margin-bottom: var(--space-5);
+}
+
+.passos__lista {
+  position: relative;
+  display: grid;
+  gap: var(--space-4);
+  counter-reset: passo;
+}
+
+.passos__item {
+  position: relative;
+  padding-left: 5rem;
+  counter-increment: passo;
+}
+
+/* Linha conectora vertical (celular) */
+.passos__item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 1.75rem;
+  top: 3.75rem;
+  bottom: -2rem;
+  width: 2px;
+  background: repeating-linear-gradient(to bottom, var(--color-accent) 0 6px, transparent 6px 12px);
+}
+
+.passos__marco {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background: var(--color-primary-dark);
+  color: var(--color-accent);
+}
+
+/* Número grande ao lado do ícone */
+.passos__item h3::before {
+  content: "0" counter(passo);
+  display: block;
+  margin-bottom: 0.15rem;
+  font: 600 2.25rem/1 var(--font-heading);
+  color: var(--color-primary);
+}
+
+.passos__item p {
+  margin: 0;
+  color: var(--color-text-soft);
+}
+
+@media (min-width: 900px) {
+  .passos__lista {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-3);
+  }
+
+  .passos__item {
+    padding: 5rem 0 0;
+  }
+
+  /* Linha conectora horizontal (desktop) */
+  .passos__item:not(:last-child)::after {
+    left: 4.25rem;
+    right: -1rem;
+    top: 1.75rem;
+    bottom: auto;
+    width: auto;
+    height: 2px;
+    background: repeating-linear-gradient(to right, var(--color-accent) 0 6px, transparent 6px 12px);
+  }
+}

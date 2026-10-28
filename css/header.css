@@ -1,0 +1,108 @@
+/* header.css — cabeçalho, navegação e menu mobile */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.header__interno {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: var(--header-altura);
+}
+
+.header__botao-menu {
+  min-height: 2.75rem;
+  min-width: 2.75rem;
+  padding: 0.5rem 1.1rem;
+  border: 2px solid var(--color-primary-dark);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--color-primary-dark);
+  font: 700 0.9375rem var(--font-body);
+  cursor: pointer;
+}
+
+/* Mobile: o menu fica escondido até o botão abrir (o JS adiciona .is-aberto) */
+.header__nav {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  padding: var(--space-3);
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+}
+
+.header__nav.is-aberto {
+  display: block;
+}
+
+.header__lista {
+  display: grid;
+  margin-bottom: var(--space-2);
+}
+
+.header__lista a {
+  display: block;
+  padding: 0.85rem 0.25rem;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.header__cta {
+  width: 100%;
+}
+
+@media (min-width: 1000px) {
+  .header__botao-menu {
+    display: none;
+  }
+
+  .header__nav {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    position: static;
+    padding: 0;
+    background: none;
+    border: 0;
+    box-shadow: none;
+  }
+
+  .header__lista {
+    display: flex;
+    gap: var(--space-3);
+    margin: 0;
+  }
+
+  .header__lista a {
+    padding: 0.5rem 0;
+    border: 0;
+    font-size: 0.9375rem;
+    color: var(--color-text-soft);
+  }
+
+  .header__lista a:hover {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+    text-decoration-color: var(--color-accent);
+    text-decoration-thickness: 2px;
+  }
+
+  .header__cta {
+    width: auto;
+    min-height: 2.75rem;
+    padding-block: 0.55rem;
+  }
+}
